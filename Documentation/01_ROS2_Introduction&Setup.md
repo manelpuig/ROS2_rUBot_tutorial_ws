@@ -79,7 +79,7 @@ You will have 2GB Virtual machine with Ubuntu 22 and ROS2 Humble installed for f
 
 We have designed a University of Barcelona custom Docker-based ROS 2 Humble environment to simplify student access to ROS 2 and ensure platform-independent workflows in robotics courses.
 
-The installation details are described on:
+The installation details are described on: [UB custom ROS2 Humble environment](https://github.com/manelpuig/my_rUBot_mecanum/blob/humble/network_config/humble/Custom_Docker_container_humble.md)
 
 ## **Prepare your Workspace**
 
