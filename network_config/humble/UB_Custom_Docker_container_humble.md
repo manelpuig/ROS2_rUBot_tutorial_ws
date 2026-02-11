@@ -12,14 +12,14 @@ A proper Docker Image has been created with the custom configuration on Dockerfi
 - In `~/ROS2_rUBot_tutorial_ws/network_config/humble` review in function of Home or Laboratory case, on:
     - `docker-compose.yaml` file: 
         - `ROS_DOMAIN_ID=1` variable to match your Group number.
-        - `ROS_AUTOMATIC_DISCOVERY_RANGE` SUBNET or OFF depending on Home or Lab use.
-        - `ROS_STATIC_PEERS` not set (Home use) or set with IP to match your robot IP (Lab Use).
+        - `ROS_AUTOMATIC_DISCOVERY_RANGE` SUBNET (Home use) or OFF (Lab use).
+        - `ROS_STATIC_PEERS` not set (Home use) or set with your robot IP (Lab Use).
     - `cyclonedds_pc.xml` file: 
         - `NetworkInterface`: not specified.
         - `AllowMulticast` true or false depending on Home or Lab use.
 - Open a terminal in `~/ROS2_rUBot_tutorial_ws/network_config/humble` and run:
     ````bash
-    xhost +local:root            # allow X11 for Docker (lab use only)
+    xhost +local:root            # only in case of Host Ubuntu to allow X11 for Docker 
     docker compose up
     ````
 - Verify the environment variables are correctly set by checking the container startup output.

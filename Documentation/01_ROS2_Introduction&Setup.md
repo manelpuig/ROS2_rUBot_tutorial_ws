@@ -232,7 +232,7 @@ We can use "rqt_graph" and "rqt_plot" to se the nodes-topics structure and the m
 
 ```shell
 rqt_graph
-rqt_plot
+rqt # to open the rqt interface and then select the "Plot" plugin
 ```
 
 ![](./Images/01_ROS2_setup/11_turtlesim_rqt.png)

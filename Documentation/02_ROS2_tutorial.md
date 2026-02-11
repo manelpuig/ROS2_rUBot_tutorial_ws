@@ -25,10 +25,10 @@ Every **Python package** will have the following structure of files and folders:
 - /resource/<package_name>: stores essential information that ROS 2 uses to understand and manage the package.
 
 Every **CMake package** will have the following structure of files and folders:
-- CMakeLists.txt: file that describes how to build the code within the package (i.e. install the extra folders, etc)
-- include/<package_name>: directory containing the public headers for the package
 - package.xml: file containing meta information about the package (maintainer of the package, dependencies, etc.).
+- CMakeLists.txt: file that describes how to build the code within the package (i.e. install the extra folders, etc)
 - src: directory containing the source code for the package
+- include/<package_name>: directory containing the public headers for the package
 
 Some packages might contain extra folders. For instance, the launch folder that contains the package's launch files 
 

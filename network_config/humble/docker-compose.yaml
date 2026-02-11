@@ -11,6 +11,7 @@ services:
     restart: unless-stopped
 
     environment:
+      - DISPLAY=${DISPLAY}
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
       - ROS_DOMAIN_ID=1 # ⚠️ numero del grup/robot (1,2,3,4)
       - ROS_LOCALHOST_ONLY=0
@@ -27,13 +28,11 @@ services:
 
       # X11 / rendering
       - QT_X11_NO_MITSHM=1
-      - LIBGL_ALWAYS_SOFTWARE=1
-      - MESA_GL_VERSION_OVERRIDE=2.1
+      #- MESA_GL_VERSION_OVERRIDE=2.1 # enable only if GPU/GL issues
+      #- LIBGL_ALWAYS_SOFTWARE=1  # enable only if GPU/GL issues
 
     volumes:
-      # Entry point script
       - ./entrypoint.pc.sh:/entrypoint.pc.sh:ro
-      # Timezone from host (for correct log timestamps)
       - /etc/localtime:/etc/localtime:ro
       # X11 display for RViz/Gazebo
       - /tmp/.X11-unix:/tmp/.X11-unix:rw

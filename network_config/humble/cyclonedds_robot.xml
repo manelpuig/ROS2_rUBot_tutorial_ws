@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- cyclonedds_robot.xml (Raspberry Pi 4, wlan0)
+     Intended for "robust lab" mode with:
+       ROS_AUTOMATIC_DISCOVERY_RANGE=OFF
+       ROS_STATIC_PEERS=<PC_IP>
+-->
 <CycloneDDS xmlns="https://cdds.io/config">
   <Domain id="any">
+
+    <!-- Bind DDS to the robot WiFi interface -->
+    <Interfaces>
+      <NetworkInterface name="wlan0" multicast="false"/>
+    </Interfaces>
+
     <General>
-      <!--
-        Let CycloneDDS automatically select the best available local interface.
-        This works on:
-          - Docker containers (eth0, 172.x.x.x)
-          - PCs with WiFi/Ethernet
-          - Laptops switching networks
-      -->
-      <Interfaces>
-        <NetworkInterface name="wlan0"/>
-      </Interfaces>
-      <!--
-        Increase max message size for point clouds, images, maps, etc.
-        (Default is often too small for robotics)
-      -->
+      <!-- Big ROS messages (PointCloud2, images, maps) -->
       <MaxMessageSize>65500B</MaxMessageSize>
-      <!--
-        Avoid DDS traffic on localhost-only when networking is enabled
-        (safe default)
-      -->
-      <AllowMulticast>true</AllowMulticast>
+
+      <!-- Not needed when using static peers -->
+      <AllowMulticast>false</AllowMulticast>
     </General>
+
   </Domain>
 </CycloneDDS>
