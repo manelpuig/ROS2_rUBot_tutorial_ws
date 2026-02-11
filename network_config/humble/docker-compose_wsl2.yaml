@@ -1,0 +1,44 @@
+services:
+  pc-humble:
+    image: manelpuig/ros2-humble-biorobub-pc:latest
+    container_name: pc_humble
+    privileged: true
+    ipc: host
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+
+    environment:
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+      - ROS_DOMAIN_ID=1
+      - ROS_LOCALHOST_ONLY=0
+
+      # LAB (Windows): recommended
+      #- ROS_AUTOMATIC_DISCOVERY_RANGE=OFF
+      #- ROS_STATIC_PEERS=192.168.1.14
+      # Home (WSL2): recommended
+      - ROS_AUTOMATIC_DISCOVERY_RANGE=SUBNET
+      # (DO NOT set ROS_STATIC_PEERS at home)
+
+      - CYCLONEDDS_URI=file:///config/cyclonedds_pc.xml
+
+      # WSLg
+      - DISPLAY=${DISPLAY}
+      - WAYLAND_DISPLAY=${WAYLAND_DISPLAY}
+      - XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR}
+      - PULSE_SERVER=${PULSE_SERVER}
+      - QT_X11_NO_MITSHM=1
+
+      # IMPORTANT: don't force software by default here
+      - LIBGL_ALWAYS_SOFTWARE=0
+
+    volumes:
+      - ./entrypoint.pc.sh:/entrypoint.pc.sh:ro
+      - ./cyclonedds_pc.xml:/config/cyclonedds_pc.xml:ro
+
+      # WSLg shared mounts
+      - /mnt/wslg:/mnt/wslg
+      - /run/user/1000:/run/user/1000
+
+    entrypoint: /entrypoint.pc.sh
+    command: sleep infinity
