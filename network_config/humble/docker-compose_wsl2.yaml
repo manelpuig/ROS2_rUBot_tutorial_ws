@@ -23,10 +23,10 @@ services:
       - CYCLONEDDS_URI=file:///config/cyclonedds_pc.xml
 
       # WSLg
-      - DISPLAY=${DISPLAY}
-      - WAYLAND_DISPLAY=${WAYLAND_DISPLAY}
-      - XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR}
-      - PULSE_SERVER=${PULSE_SERVER}
+      - DISPLAY=:0
+      - WAYLAND_DISPLAY=wayland-0
+      - XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir
+      - PULSE_SERVER=/mnt/wslg/PulseServer
       - QT_X11_NO_MITSHM=1
 
       # IMPORTANT: don't force software by default here
@@ -38,7 +38,7 @@ services:
 
       # WSLg shared mounts
       - /mnt/wslg:/mnt/wslg
-      - /run/user/1000:/run/user/1000
+      - /mnt/wslg/.X11-unix:/tmp/.X11-unix:rw
 
     entrypoint: /entrypoint.pc.sh
     command: sleep infinity
