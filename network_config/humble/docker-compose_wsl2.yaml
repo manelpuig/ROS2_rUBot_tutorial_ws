@@ -11,12 +11,11 @@ services:
     environment:
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
       - ROS_DOMAIN_ID=1
-      - ROS_LOCALHOST_ONLY=0
 
       # LAB (Windows): recommended
       #- ROS_AUTOMATIC_DISCOVERY_RANGE=OFF
       #- ROS_STATIC_PEERS=192.168.1.14
-      # Home (WSL2): recommended
+      # SIM (WSL2): recommended
       - ROS_AUTOMATIC_DISCOVERY_RANGE=SUBNET
       # (DO NOT set ROS_STATIC_PEERS at home)
 
@@ -33,12 +32,12 @@ services:
       - LIBGL_ALWAYS_SOFTWARE=0
 
     volumes:
-      - ./entrypoint.pc.sh:/entrypoint.pc.sh:ro
+      - ./entrypoint_pc.sh:/entrypoint_pc.sh:ro
       - ./cyclonedds_pc.xml:/config/cyclonedds_pc.xml:ro
 
       # WSLg shared mounts
       - /mnt/wslg:/mnt/wslg
       - /mnt/wslg/.X11-unix:/tmp/.X11-unix:rw
 
-    entrypoint: /entrypoint.pc.sh
+    entrypoint: /entrypoint_pc.sh
     command: sleep infinity

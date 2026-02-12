@@ -32,7 +32,7 @@ services:
       #- LIBGL_ALWAYS_SOFTWARE=1  # enable only if GPU/GL issues
 
     volumes:
-      - ./entrypoint.pc.sh:/entrypoint.pc.sh:ro
+      - ./entrypoint_pc.sh:/entrypoint_pc.sh:ro
       - /etc/localtime:/etc/localtime:ro
       # X11 display for RViz/Gazebo
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
@@ -41,5 +41,5 @@ services:
       # CycloneDDS configuration (PC side)
       - ./cyclonedds_pc.xml:/config/cyclonedds_pc.xml:ro
 
-    entrypoint: /entrypoint.pc.sh
+    entrypoint: /entrypoint_pc.sh
     command: sleep infinity

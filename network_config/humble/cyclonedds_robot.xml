@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- cyclonedds_robot.xml (Raspberry Pi 4, wlan0)
-     Intended for "robust lab" mode with:
-       ROS_AUTOMATIC_DISCOVERY_RANGE=OFF
-       ROS_STATIC_PEERS=<PC_IP>
--->
 <CycloneDDS xmlns="https://cdds.io/config">
   <Domain id="any">
-
-    <!-- Bind DDS to the robot WiFi interface -->
+    <General>
+      <AllowMulticast>false</AllowMulticast>
+      <!-- Not necessary if there are no problem with big image transport -->                                           -->
+      <!--<MaxMessageSize>65500B</MaxMessageSize>-->
+    </General>
     <Interfaces>
       <NetworkInterface name="wlan0" multicast="false"/>
     </Interfaces>
-
-    <General>
-      <!-- Big ROS messages (PointCloud2, images, maps) -->
-      <MaxMessageSize>65500B</MaxMessageSize>
-
-      <!-- Not needed when using static peers -->
-      <AllowMulticast>false</AllowMulticast>
-    </General>
-
+    <Discovery>
+      <Peers>
+        <Peer Address="192.168.1.15"/>
+        <Peer Address="192.168.1.16"/>
+      </Peers>
+    </Discovery>
   </Domain>
 </CycloneDDS>
