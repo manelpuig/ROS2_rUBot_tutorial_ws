@@ -19,7 +19,7 @@ services:
       - ROS_AUTOMATIC_DISCOVERY_RANGE=SUBNET
       # (DO NOT set ROS_STATIC_PEERS at home)
 
-      - CYCLONEDDS_URI=file:///config/cyclonedds_pc.xml
+      #- CYCLONEDDS_URI=file:///config/cyclonedds_pc.xml
 
       # WSLg
       - DISPLAY=:0
@@ -33,7 +33,7 @@ services:
 
     volumes:
       - ./entrypoint_pc.sh:/entrypoint_pc.sh:ro
-      - ./cyclonedds_pc.xml:/config/cyclonedds_pc.xml:ro
+      #- ./cyclonedds_pc.xml:/config/cyclonedds_pc.xml:ro
 
       # WSLg shared mounts
       - /mnt/wslg:/mnt/wslg

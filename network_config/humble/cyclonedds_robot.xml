@@ -3,7 +3,7 @@
   <Domain id="any">
     <General>
       <AllowMulticast>false</AllowMulticast>
-      <!-- Not necessary if there are no problem with big image transport -->                                           -->
+      <!-- Not necessary if there are no problem with big image transport -->
       <!-- <MaxMessageSize>65500B</MaxMessageSize> -->
     </General>
     <Interfaces>

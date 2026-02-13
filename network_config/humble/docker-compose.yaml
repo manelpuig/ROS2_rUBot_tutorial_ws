@@ -16,14 +16,14 @@ services:
       - ROS_DOMAIN_ID=1 # ⚠️ numero del grup/robot (1,2,3,4)
 
       # Home: Simulation
-      - ROS_AUTOMATIC_DISCOVERY_RANGE=SUBNET
+      #- ROS_AUTOMATIC_DISCOVERY_RANGE=SUBNET
       # (DO NOT set ROS_STATIC_PEERS at home)
       # Lab: connection with rUBot
-      #- ROS_AUTOMATIC_DISCOVERY_RANGE=OFF
-      #- ROS_STATIC_PEERS=192.168.1.14   # ⚠️ rUBot IP (14,24,34,44)
+      - ROS_AUTOMATIC_DISCOVERY_RANGE=OFF
+      - ROS_STATIC_PEERS=192.168.1.14   # ⚠️ rUBot IP (14,24,34,44)
 
-      # CycloneDDS XML (PC side)
-      - CYCLONEDDS_URI=file:///config/cyclonedds_pc.xml
+      # CycloneDDS XML (PC side) usually not necessary
+      #- CYCLONEDDS_URI=file:///config/cyclonedds_pc.xml
 
       # X11 / rendering
       - QT_X11_NO_MITSHM=1
@@ -38,7 +38,7 @@ services:
       # GPU / rendering devices (if needed)
       - /dev/dri:/dev/dri
       # CycloneDDS configuration (PC side)
-      - ./cyclonedds_pc.xml:/config/cyclonedds_pc.xml:ro
+      #- ./cyclonedds_pc.xml:/config/cyclonedds_pc.xml:ro
 
     entrypoint: /entrypoint_pc.sh
     command: sleep infinity

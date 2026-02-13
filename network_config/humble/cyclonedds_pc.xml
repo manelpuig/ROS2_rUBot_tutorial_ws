@@ -10,8 +10,8 @@
       <!-- LAB MODE (PC <-> rUBot, controlled unicast discovery)    -->
       <!--   Use: false                                              -->
       <!-- ========================================================= -->
-      <AllowMulticast>false</AllowMulticast>
-      <!-- Not necessary if there are no problem with big image transport -->                                           -->
+      <AllowMulticast>spdp</AllowMulticast>
+      <!-- Not necessary if there are no problem with big image transport -->
       <!-- <MaxMessageSize>65500B</MaxMessageSize> -->
     </General>
     <!-- ========================================================= -->
@@ -25,17 +25,17 @@
     <!--   192.168.1.16  -> PC IP on the LAB router                -->
     <!--   192.168.1.14  -> rUBot IP                                -->
     <!-- ========================================================= -->
-
+    <!--
     <Interfaces>
-      <NetworkInterface address="192.168.1.2" multicast="false"/>
+      <NetworkInterface address="192.168.1.16" multicast="false"/>
     </Interfaces>
 
     <Discovery>
       <Peers>
-        <Peer Address="192.168.1.64"/>
+        <Peer Address="192.168.1.14"/>
       </Peers>
     </Discovery>
-
+    -->
   </Domain>
 
 </CycloneDDS>
