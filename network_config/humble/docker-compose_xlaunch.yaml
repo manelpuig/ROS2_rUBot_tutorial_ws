@@ -13,10 +13,10 @@ services:
       - ROS_DOMAIN_ID=1
 
       # LAB (Windows): recommended
-      #- ROS_AUTOMATIC_DISCOVERY_RANGE=OFF
-      #- ROS_STATIC_PEERS=192.168.1.14
+      - ROS_AUTOMATIC_DISCOVERY_RANGE=OFF
+      - ROS_STATIC_PEERS=192.168.1.64
       # SIM (xlaunch): recommended
-      - ROS_AUTOMATIC_DISCOVERY_RANGE=SUBNET
+      #- ROS_AUTOMATIC_DISCOVERY_RANGE=SUBNET
       # (DO NOT set ROS_STATIC_PEERS at home)
 
       - CYCLONEDDS_URI=file:///config/cyclonedds_pc.xml

@@ -12,7 +12,7 @@
       <!-- ========================================================= -->
       <AllowMulticast>false</AllowMulticast>
       <!-- Not necessary if there are no problem with big image transport -->                                           -->
-      <!--<MaxMessageSize>65500B</MaxMessageSize>-->
+      <!-- <MaxMessageSize>65500B</MaxMessageSize> -->
     </General>
     <!-- ========================================================= -->
     <!-- LAB MODE ONLY                                             -->
@@ -27,12 +27,12 @@
     <!-- ========================================================= -->
 
     <Interfaces>
-      <NetworkInterface address="192.168.1.16" multicast="false"/>
+      <NetworkInterface address="192.168.1.2" multicast="false"/>
     </Interfaces>
 
     <Discovery>
       <Peers>
-        <Peer Address="192.168.1.14"/>
+        <Peer Address="192.168.1.64"/>
       </Peers>
     </Discovery>
 
